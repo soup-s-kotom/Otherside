@@ -2,6 +2,7 @@ package net.soup.otherside;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.soup.otherside.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,5 +13,7 @@ public class Otherside implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Sasha amogus :)))");
+
+		ModItems.registerModItems();
 	}
 }

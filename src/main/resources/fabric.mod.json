@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "otherside",
+	"version": "${version}",
+	"name": "Otherside",
+	"description": "Private mod for a private server",
+	"authors": [
+		"soupSKotom"
+	],
+	"contact": {
+		"homepage": "",
+		"sources": ""
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/otherside/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+			"net.soup.otherside.OthersideClient"
+		],
+		"main": [
+			"net.soup.otherside.Otherside"
+		],
+		"fabric-datagen": [
+			"net.soup.otherside.OthersideDataGenerator"
+		]
+	},
+	"mixins": [
+		"otherside.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

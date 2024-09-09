@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.soup.otherside.block.ModBlocks;
 import net.soup.otherside.item.ModItemGroups;
 import net.soup.otherside.item.ModItems;
 import org.slf4j.Logger;
@@ -24,5 +25,6 @@ public class Otherside implements ModInitializer {
 		LOGGER.info("Sasha amogus :)))");
 		ModItemGroups.RegisterItemGroups();
 		ModItems.registerModItems();
+		ModBlocks.RegisterModBlocks();
 	}
 }

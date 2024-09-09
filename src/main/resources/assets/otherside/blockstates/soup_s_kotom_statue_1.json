@@ -1,7 +1,10 @@
 {
-  "variants":{
-    "": {
-    "model": "otherside:block/soup_s_kotom_statue_1"
-    }
+  "variants": {
+    "facing=east": { "model": "otherside:block/soup_s_kotom_statue_1" },
+    "facing=south": { "model": "otherside:block/soup_s_kotom_statue_1", "y": 90 },
+    "facing=west": { "model": "otherside:block/soup_s_kotom_statue_1", "y": 180 },
+    "facing=north": { "model": "otherside:block/soup_s_kotom_statue_1", "y": 270 }
   }
 }
+
+

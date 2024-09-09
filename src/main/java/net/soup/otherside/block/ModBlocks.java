@@ -26,6 +26,7 @@ public class ModBlocks {
         return Registry.register(Registries.ITEM, new Identifier(Otherside.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
     }
 
+
     public static void RegisterModBlocks(){
         Otherside.LOGGER.info("Registering blocks for " + Otherside.MOD_ID);
 

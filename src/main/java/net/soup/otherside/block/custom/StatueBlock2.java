@@ -1,52 +1,37 @@
 package net.soup.otherside.block.custom;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
-import net.minecraft.block.enums.DoorHinge;
 import net.minecraft.block.enums.DoubleBlockHalf;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.pathing.NavigationType;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
-import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 
-
-public class StatueBlock extends Block {
+public class StatueBlock2 extends Block {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
-    // public static final BooleanProperty OPEN = Properties.OPEN;
-    // public static final EnumProperty<DoorHinge> HINGE = Properties.DOOR_HINGE;
-    //  public static final BooleanProperty POWERED = Properties.POWERED;
+   // public static final BooleanProperty OPEN = Properties.OPEN;
+   // public static final EnumProperty<DoorHinge> HINGE = Properties.DOOR_HINGE;
+  //  public static final BooleanProperty POWERED = Properties.POWERED;
     public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
 
     protected static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 16.0, 16.0);
     private final BlockSetType blockSetType;
 
-    public StatueBlock(Settings settings, BlockSetType blockSetType) {
+    public StatueBlock2(Settings settings, BlockSetType blockSetType) {
         super(settings);
         this.blockSetType = blockSetType;
     }
@@ -69,9 +54,9 @@ public class StatueBlock extends Block {
         } else {
             return neighborState.isOf(this) && neighborState.get(HALF) != doubleBlockHalf
                     ? state.with(FACING, (Direction) neighborState.get(FACING))
-                    //    .with(OPEN, (Boolean) neighborState.get(OPEN))
-                    // .with(HINGE, (DoorHinge) neighborState.get(HINGE))
-                    //    .with(POWERED, (Boolean) neighborState.get(POWERED))
+                //    .with(OPEN, (Boolean) neighborState.get(OPEN))
+                   // .with(HINGE, (DoorHinge) neighborState.get(HINGE))
+                //    .with(POWERED, (Boolean) neighborState.get(POWERED))
                     : Blocks.AIR.getDefaultState();
         }
     }
@@ -86,7 +71,7 @@ public class StatueBlock extends Block {
             boolean bl = world.isReceivingRedstonePower(blockPos) || world.isReceivingRedstonePower(blockPos.up());
             return this.getDefaultState()
                     .with(FACING, ctx.getHorizontalPlayerFacing())
-                    //    .with(HINGE, this.getHinge(ctx))
+                //    .with(HINGE, this.getHinge(ctx))
                     .with(HALF, DoubleBlockHalf.LOWER);
         } else {
             return null;

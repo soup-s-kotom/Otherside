@@ -3,6 +3,7 @@ package net.soup.otherside.block;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSetType;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.PillarBlock;
 
@@ -14,11 +15,13 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.shape.VoxelShape;
 import net.soup.otherside.Otherside;
 import net.soup.otherside.block.custom.StatueBlock;
+import net.soup.otherside.block.custom.TallBlock;
 
 public class ModBlocks {
 
 
-    public static final Block SOUP_S_KOTOM_STATUE_1 = registerBlock("soup_s_kotom_statue_1", new StatueBlock(FabricBlockSettings.copyOf(Blocks.STONE).nonOpaque()));
+    public static final Block SOUP_S_KOTOM_STATUE_1 = registerBlock("soup_s_kotom_statue_1", new StatueBlock(FabricBlockSettings.copyOf(Blocks.STONE).nonOpaque(), BlockSetType.IRON));
+    public static final Block TB = registerBlock("tb", new TallBlock(FabricBlockSettings.copyOf(Blocks.ACACIA_DOOR).nonOpaque(), BlockSetType.ACACIA));
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);

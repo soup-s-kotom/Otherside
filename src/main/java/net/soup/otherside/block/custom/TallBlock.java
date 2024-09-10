@@ -1,6 +1,5 @@
 package net.soup.otherside.block.custom;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoorHinge;
 import net.minecraft.block.enums.DoubleBlockHalf;
@@ -26,7 +25,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
@@ -35,18 +33,17 @@ import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 
-
-public class StatueBlock extends Block {
+public class TallBlock extends Block {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
-    // public static final BooleanProperty OPEN = Properties.OPEN;
-    // public static final EnumProperty<DoorHinge> HINGE = Properties.DOOR_HINGE;
-    //  public static final BooleanProperty POWERED = Properties.POWERED;
+    public static final BooleanProperty OPEN = Properties.OPEN;
+    public static final EnumProperty<DoorHinge> HINGE = Properties.DOOR_HINGE;
+    public static final BooleanProperty POWERED = Properties.POWERED;
     public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
 
     protected static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 16.0, 16.0);
     private final BlockSetType blockSetType;
 
-    public StatueBlock(Settings settings, BlockSetType blockSetType) {
+    public TallBlock(Settings settings, BlockSetType blockSetType) {
         super(settings);
         this.blockSetType = blockSetType;
     }
@@ -68,13 +65,14 @@ public class StatueBlock extends Block {
                     : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
         } else {
             return neighborState.isOf(this) && neighborState.get(HALF) != doubleBlockHalf
-                    ? state.with(FACING, (Direction) neighborState.get(FACING))
-                    //    .with(OPEN, (Boolean) neighborState.get(OPEN))
-                    // .with(HINGE, (DoorHinge) neighborState.get(HINGE))
-                    //    .with(POWERED, (Boolean) neighborState.get(POWERED))
+                    ? state.with(FACING, (Direction)neighborState.get(FACING))
+                    .with(OPEN, (Boolean)neighborState.get(OPEN))
+                    .with(HINGE, (DoorHinge)neighborState.get(HINGE))
+                    .with(POWERED, (Boolean)neighborState.get(POWERED))
                     : Blocks.AIR.getDefaultState();
         }
     }
+
 
 
     @Nullable
@@ -86,7 +84,9 @@ public class StatueBlock extends Block {
             boolean bl = world.isReceivingRedstonePower(blockPos) || world.isReceivingRedstonePower(blockPos.up());
             return this.getDefaultState()
                     .with(FACING, ctx.getHorizontalPlayerFacing())
-                    //    .with(HINGE, this.getHinge(ctx))
+                    .with(HINGE, this.getHinge(ctx))
+   //                 .with(POWERED, Boolean.valueOf(bl))
+     //               .with(OPEN, Boolean.valueOf(bl))
                     .with(HALF, DoubleBlockHalf.LOWER);
         } else {
             return null;
@@ -97,7 +97,7 @@ public class StatueBlock extends Block {
     public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
         world.setBlockState(pos.up(), state.with(HALF, DoubleBlockHalf.UPPER), Block.NOTIFY_ALL);
     }
-/*
+
     private DoorHinge getHinge(ItemPlacementContext ctx) {
         BlockView blockView = ctx.getWorld();
         BlockPos blockPos = ctx.getBlockPos();
@@ -124,8 +124,8 @@ public class StatueBlock extends Block {
                 int j = direction.getOffsetX();
                 int k = direction.getOffsetZ();
                 Vec3d vec3d = ctx.getHitPos();
-                double d = vec3d.x - (double) blockPos.getX();
-                double e = vec3d.z - (double) blockPos.getZ();
+                double d = vec3d.x - (double)blockPos.getX();
+                double e = vec3d.z - (double)blockPos.getZ();
                 return (j >= 0 || !(e < 0.5)) && (j <= 0 || !(e > 0.5)) && (k >= 0 || !(d > 0.5)) && (k <= 0 || !(d < 0.5)) ? DoorHinge.LEFT : DoorHinge.RIGHT;
             } else {
                 return DoorHinge.LEFT;
@@ -141,7 +141,7 @@ public class StatueBlock extends Block {
         BlockState blockState = world.getBlockState(blockPos);
         return state.get(HALF) == DoubleBlockHalf.LOWER ? blockState.isSideSolidFullSquare(world, blockPos, Direction.UP) : blockState.isOf(this);
     }
-*/
+
 
     @Override
     public BlockState rotate(BlockState state, BlockRotation rotation) {
@@ -150,8 +150,7 @@ public class StatueBlock extends Block {
 
     @Override
     public BlockState mirror(BlockState state, BlockMirror mirror) {
-        return mirror == BlockMirror.NONE ? state : state.rotate(mirror.getRotation(state.get(FACING)))//.cycle(HINGE)
-                ;
+        return mirror == BlockMirror.NONE ? state : state.rotate(mirror.getRotation(state.get(FACING))).cycle(HINGE);
     }
 
     @Override
@@ -161,46 +160,7 @@ public class StatueBlock extends Block {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(HALF, FACING //, OPEN, HINGE, POWERED
-        );
-    }
-
-} /*extends FacingBlock {
-    private static final VoxelShape SHAPE = Block.createCuboidShape(0, 0,  0, 16, 32, 16 );
-
-    public StatueBlock (AbstractBlock.Settings settings) {
-        super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.SOUTH));
-    }
-
-
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
-    }
-
-    @Override
-    public BlockState rotate(BlockState state, BlockRotation rotation) {
-        return state.with(FACING, rotation.rotate(state.get(FACING)));
-    }
-
-    @Override
-    public BlockState mirror(BlockState state, BlockMirror mirror) {
-        return state.rotate(mirror.getRotation(state.get(FACING)));
-    }
-
-   @Override
-   public BlockState getPlacementState(ItemPlacementContext ctx) {
-       return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
-   }
-
-    @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPE;
+        builder.add(HALF, FACING, OPEN, HINGE, POWERED);
     }
 
 }
-
-
-
-*/

@@ -1,0 +1,179 @@
+
+
+
+
+{
+  "variants": {
+    "facing=east, half=lower": {
+      "model": "otherside:block/soup_s_kotom_statue_1",
+      "y": 90
+    },
+    "facing=north, half=lower": {
+      "model": "otherside:block/soup_s_kotom_statue_1"
+    },
+    "facing=south, half=lower": {
+      "model": "otherside:block/soup_s_kotom_statue_1",
+      "y": 180
+    },
+    "facing=west, half=lower": {
+      "model": "otherside:block/soup_s_kotom_statue_1",
+      "y": 270,
+
+      "half=upper": {"model":  ""}
+    }
+  }
+}
+
+
+
+
+
+{
+  "variants": {
+    "facing=east": {
+      "model": "otherside:block/soup_s_kotom_statue_1",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "otherside:block/soup_s_kotom_statue_1"
+    },
+    "facing=south": {
+      "model": "otherside:block/soup_s_kotom_statue_1",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "otherside:block/soup_s_kotom_statue_1",
+      "y": 270,
+
+      "half=upper": {"model":  "otherside:block/soup_s_kotom_statue_2"}
+    }
+  }
+}
+
+
+
+
+{
+  "variants": {
+    "facing=east,half=lower,hinge=left,open=false": {
+      "model": "soup_s_kotom_statue_1.json"
+    },
+    "facing=east,half=lower,hinge=left,open=true": {
+      "model": "soup_s_kotom_statue_1.json",
+      "y": 90
+    },
+    "facing=east,half=lower,hinge=right,open=false": {
+      "model": "soup_s_kotom_statue_1.json"
+    },
+    "facing=east,half=lower,hinge=right,open=true": {
+      "model": "soup_s_kotom_statue_1.json",
+      "y": 270
+    },
+    "facing=east,half=upper,hinge=left,open=false": {
+      "model": "soup_s_kotom_statue_2.json"
+    },
+    "facing=east,half=upper,hinge=left,open=true": {
+      "model": "soup_s_kotom_statue_2.json",
+      "y": 90
+    },
+    "facing=east,half=upper,hinge=right,open=false": {
+      "model": "soup_s_kotom_statue_2.json"
+    },
+    "facing=east,half=upper,hinge=right,open=true": {
+      "model": "soup_s_kotom_statue_2.json",
+      "y": 270
+    },
+    "facing=north,half=lower,hinge=left,open=false": {
+      "model": "soup_s_kotom_statue_1.json",
+      "y": 270
+    },
+    "facing=north,half=lower,hinge=left,open=true": {
+      "model": "soup_s_kotom_statue_1.json"
+    },
+    "facing=north,half=lower,hinge=right,open=false": {
+      "model": "soup_s_kotom_statue_1.json",
+      "y": 270
+    },
+    "facing=north,half=lower,hinge=right,open=true": {
+      "model": "soup_s_kotom_statue_1.json",
+      "y": 180
+    },
+    "facing=north,half=upper,hinge=left,open=false": {
+      "model": "soup_s_kotom_statue_2.json",
+      "y": 270
+    },
+    "facing=north,half=upper,hinge=left,open=true": {
+      "model": "soup_s_kotom_statue_2.json"
+    },
+    "facing=north,half=upper,hinge=right,open=false": {
+      "model": "soup_s_kotom_statue_2.json",
+      "y": 270
+    },
+    "facing=north,half=upper,hinge=right,open=true": {
+      "model": "soup_s_kotom_statue_2.json",
+      "y": 180
+    },
+    "facing=south,half=lower,hinge=left,open=false": {
+      "model": "soup_s_kotom_statue_1.json",
+      "y": 90
+    },
+    "facing=south,half=lower,hinge=left,open=true": {
+      "model": "soup_s_kotom_statue_1.json",
+      "y": 180
+    },
+    "facing=south,half=lower,hinge=right,open=false": {
+      "model": "soup_s_kotom_statue_1.json",
+      "y": 90
+    },
+    "facing=south,half=lower,hinge=right,open=true": {
+      "model": "soup_s_kotom_statue_1.json"
+    },
+    "facing=south,half=upper,hinge=left,open=false": {
+      "model": "soup_s_kotom_statue_2.json",
+      "y": 90
+    },
+    "facing=south,half=upper,hinge=left,open=true": {
+      "model": "soup_s_kotom_statue_2.json",
+      "y": 180
+    },
+    "facing=south,half=upper,hinge=right,open=false": {
+      "model": "soup_s_kotom_statue_2.json",
+      "y": 90
+    },
+    "facing=south,half=upper,hinge=right,open=true": {
+      "model": "soup_s_kotom_statue_2.json"
+    },
+    "facing=west,half=lower,hinge=left,open=false": {
+      "model": "soup_s_kotom_statue_1.json",
+      "y": 180
+    },
+    "facing=west,half=lower,hinge=left,open=true": {
+      "model": "soup_s_kotom_statue_1.json",
+      "y": 270
+    },
+    "facing=west,half=lower,hinge=right,open=false": {
+      "model": "soup_s_kotom_statue_1.json",
+      "y": 180
+    },
+    "facing=west,half=lower,hinge=right,open=true": {
+      "model": "soup_s_kotom_statue_1.json",
+      "y": 90
+    },
+    "facing=west,half=upper,hinge=left,open=false": {
+      "model": "soup_s_kotom_statue_2.json",
+      "y": 180
+    },
+    "facing=west,half=upper,hinge=left,open=true": {
+      "model": "soup_s_kotom_statue_2.json",
+      "y": 270
+    },
+    "facing=west,half=upper,hinge=right,open=false": {
+      "model": "soup_s_kotom_statue_2.json",
+      "y": 180
+    },
+    "facing=west,half=upper,hinge=right,open=true": {
+      "model": "soup_s_kotom_statue_2.json",
+      "y": 90
+    }
+  }
+}

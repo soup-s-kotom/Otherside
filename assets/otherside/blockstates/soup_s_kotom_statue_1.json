@@ -1,22 +1,21 @@
 {
   "variants": {
-    "half=upper": {
-      "model": "otherside:block/soup_s_kotom_statue_2"
-    },
-    "facing=east,half=lower": {
+    "facing=east": {
       "model": "otherside:block/soup_s_kotom_statue_1",
       "y": 90
     },
-    "facing=north,half=lower": {
+    "facing=north": {
       "model": "otherside:block/soup_s_kotom_statue_1"
     },
-    "facing=south,half=lower": {
+    "facing=south": {
       "model": "otherside:block/soup_s_kotom_statue_1",
       "y": 180
     },
-    "facing=west,half=lower": {
+    "facing=west": {
       "model": "otherside:block/soup_s_kotom_statue_1",
       "y": 270
     }
   }
 }
+
+

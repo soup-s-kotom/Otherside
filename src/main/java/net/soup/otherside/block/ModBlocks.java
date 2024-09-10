@@ -11,11 +11,14 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.shape.VoxelShape;
 import net.soup.otherside.Otherside;
+import net.soup.otherside.block.custom.StatueBlock;
 
 public class ModBlocks {
 
-    public static final Block SOUP_S_KOTOM_STATUE_1 = registerBlock("soup_s_kotom_statue_1", new PillarBlock(FabricBlockSettings.copyOf(Blocks.STONE)));
+
+    public static final Block SOUP_S_KOTOM_STATUE_1 = registerBlock("soup_s_kotom_statue_1", new StatueBlock(FabricBlockSettings.copyOf(Blocks.STONE).nonOpaque()));
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);
